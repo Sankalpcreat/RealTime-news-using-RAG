@@ -1,3 +1,4 @@
+# src/rag_pipeline.py
 from src.fetch_news import fetch_latest_news
 from src.summarize import summarize_text
 from src.retriever import setup_retriever
@@ -12,13 +13,21 @@ def rag_pipeline(topic):
         return ["Error setting up the retriever."]
 
     query = topic
-    retrieved_documents = retriever.get_relevant_documents(query)
+    try:
+        retrieved_documents = retriever.invoke(query)
+    except AttributeError:
+        return ["Error: The retriever object does not have an 'invoke' method."]
+    except Exception as e:
+        return [f"Error during retrieval: {e}"]
+
     if not retrieved_documents:
         return ["No relevant articles found."]
 
     summaries = []
     for doc in retrieved_documents:
         summary = summarize_text(doc.page_content)
+        if "Error during summarization" in summary:
+            continue  
         summaries.append({
             'title': doc.metadata.get('title', 'No Title'),
             'url': doc.metadata.get('url', '#'),
