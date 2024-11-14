@@ -12,13 +12,13 @@ This project is a Real-Time News Summarizer that fetches the latest news article
 ## **Requirements**
 
 - Python 3.8 or higher
-- API keys for NewsAPI.org and OpenAI
-- Internet connection
+- API keys for NewsAPI and OpenAI
+
 
 ## **Setup Instructions**
 
 ### **1. Clone the Repository**
 
 ```bash
-git clone https://github.com/yourusername/real_time_news_summarizer.git
-cd real_time_news_summarizer
+git clone https://github.com/Sankalpcreat/RealTime-news-using-RAG.git
+cd RealTime-news-using-RAG
