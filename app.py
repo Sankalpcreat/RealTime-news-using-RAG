@@ -3,7 +3,7 @@ from src.rag_pipeline import rag_pipeline
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable Cross-Origin Resource Sharing
+CORS(app)  
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
@@ -22,4 +22,4 @@ def summarize():
         return jsonify({"error": "An internal error occurred."}), 500
 
 if __name__ == '__main__':
-    app.run(debug=False)  # Set debug to False for production
+    app.run(debug=False) 

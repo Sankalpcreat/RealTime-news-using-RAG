@@ -1,7 +1,7 @@
 # src/summarize.py
 import os
 from dotenv import load_dotenv
-from langchain import OpenAI
+from langchain_community.llms import OpenAI
 from langchain.chains.combine_documents.map_reduce import MapReduceDocumentsChain
 from langchain.docstore.document import Document
 from config.settings import OPENAI_API_KEY
