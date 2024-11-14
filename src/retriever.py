@@ -4,6 +4,7 @@ from src.embeddings import get_embedding_model
 
 def setup_retriever(documents):
     if not documents:
+        print("No documents provided to retriever")
         return None
 
     
@@ -14,6 +15,7 @@ def setup_retriever(documents):
         )
         for doc in documents
     ]
+    print(f"Documents for retriever: {docs}")
 
     embeddings_model = get_embedding_model()
     try:
